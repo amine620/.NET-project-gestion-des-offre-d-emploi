@@ -1,0 +1,52 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+.img-size{
+    font-size:90px;
+}
+
+/*.txt{
+    text-align:center;
+    background-color:ghostwhite
+}*/
+.navbar-user {
+    padding: 10px;
+    /*padding-bottom:0px;*/
+    width: 350px;
+    margin-left: 114px;
+    height: 255px;
+}
+.lead{
+    color:gray;
+}
+
+
+
+.jumbotron {
+    margin-top: 20px;
+    background-image: url('../upload/abstract-background-design.jpg');
+    background-size: cover;
+    color: white;
+}
+

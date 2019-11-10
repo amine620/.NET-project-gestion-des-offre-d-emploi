@@ -1,0 +1,26 @@
+﻿@model wafabank.Models.job
+
+@{
+    Layout = null;
+}
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Adresse)
+        </dt>
+
+        <dd>
+            <a target="_blank" href="https://www.google.com/maps/place/@Model.Adresse">
+                @Html.DisplayFor(model => model.Adresse)
+            </a>
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dt>
+            @Html.DisplayFor(model => model.Email)
+        </dt>
+    </dl>
+
+</div>

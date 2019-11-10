@@ -1,0 +1,66 @@
+﻿@model wafabank.Models.offre
+
+
+@{
+}
+
+
+<link href="~/Content/jobs.css" rel="stylesheet" />
+
+
+@using (Html.BeginForm())
+{
+
+    <div>
+        <hr />
+        <div class="panel panel-info">
+            <h3 class="panel-heading">
+                @Html.DisplayName(" Les Conditions")
+            </h3>
+
+            <div class="row panel-body">
+                <strong>
+                    @Html.DisplayFor(model => model.Description)
+                </strong>
+                @Html.ActionLink("Postuler", "Apply", new { id = Model.Id }, new { @class = "btn btn-success c" })
+
+                @*<a href="#" class="btn btn-warning " style="color:white " onclick="edituti(@Model.Id)"><i class="fa fa-edit"></i></a>*@
+
+
+            </div>
+        </div>
+    </div>
+
+}
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/bootstrap")
+
+<script>
+    $(document).ready(function () {
+        $('#example').dataTable();
+    });
+
+    var edituti = function (ArticleId) {
+
+        var url = "/Home/map?id=" + ArticleId;
+
+
+        $("#myModalBodyDiv1").load(url,
+            function () {
+                $("#myModal1").modal("show");
+
+            });
+
+    }
+
+
+</script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<style>
+    #searchname {
+        margin-left: -1033px;
+    }
+</style>

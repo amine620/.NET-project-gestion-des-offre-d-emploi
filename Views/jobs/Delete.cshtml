@@ -1,0 +1,70 @@
+﻿@model wafabank.Models.offre
+
+@{
+    Layout = null;}
+
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Secteur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Secteur.Nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Niveau)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Niveau.Nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.poste)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.poste.Nom)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ville)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ville.Nom)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Adresse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adresse)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayName("Date Publication")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatePost)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Supprimmer" class="btn btn-danger" /> |
+        </div>
+    }
+</div>

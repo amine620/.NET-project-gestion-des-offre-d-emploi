@@ -1,0 +1,37 @@
+﻿
+    
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-image: url('../upload/abstract-background-designs.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    MARGIN-TOP: 92px;
+}
+.c {
+    color: #ffffff;
+    
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    margin-left: 963px;
+    margin-top: -34px;
+}
+
+#searchname {
+    width: 130px;
+    height: 40px;
+    margin-top: -7px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    /*background-image: url('../uploid/download.png');
+    background-repeat: no-repeat;*/
+    transition: width 0.4s ease-in-out;
+}
+    #searchname:focus {
+        width: 100%;
+    }

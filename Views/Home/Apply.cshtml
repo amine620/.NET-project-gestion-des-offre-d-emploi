@@ -1,0 +1,136 @@
+﻿@model wafabank.Models.Demande
+@{
+}
+
+
+
+<link href="~/Content/textbox.css" rel="stylesheet" />
+<link href="~/Content/jobs.css" rel="stylesheet" />
+<div class="form-horizontal">
+    <div>
+        @{
+            if (ViewBag.Result != null)
+            {
+                <h3>@ViewBag.Result</h3>
+            }
+        }
+    </div>
+    <div class="alert alert-danger" id="error-div" style="display:none">
+        <span id="verror">
+
+        </span>
+    </div>
+    <div>
+        <hr />
+        <div class="panel panel-info" style="box-shadow: 5px 10px 8px #888888;">
+            <h3 class="panel-heading">
+                @Html.Label("Saisi votre Information")
+            </h3>
+
+            <div class="row panel-body formul">
+                @using (Html.BeginForm("Apply", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.Label("", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.Editor("Nom", new { htmlAttributes = new { @class = "form-control ", @placeholder = "Nom" } })
+                            @Html.ValidationMessage("Nom", "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.Editor("Prenom", new { htmlAttributes = new { @class = "form-control txt2", @placeholder = "Prenom" } })
+                            @Html.ValidationMessage("Prenom", "", new { @class = "text-danger", @style = "margin-left:404px;" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.Editor("CIN", new { htmlAttributes = new { @class = "form-control ", @placeholder = "CIN" } })
+                            @Html.ValidationMessage("CIN", "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.Editor("Adresse", new { htmlAttributes = new { @class = "form-control txt4", @placeholder = "Adresse" } })
+                            @Html.ValidationMessage("Adresse", "", new { @class = "text-danger", @style = "margin-left:405px;" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.Editor("Email", new { htmlAttributes = new { @class = "form-control txt5", @placeholder = "Email" } })
+                            @Html.ValidationMessage("Email", "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.Editor("Tele", new { htmlAttributes = new { @class = "form-control txt6", @placeholder = "Telephone" } })
+                            @Html.ValidationMessage("Tele", "", new { @class = "text-danger", @style = "margin-left:409px;" })
+                        </div>
+                    </div>
+
+
+                    @Html.Label("votre Message De Motivation", htmlAttributes: new { @class = "control-label col-md-4", @style = "margin-left:-83px;margin-top:-19px;" })
+
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.TextArea("Message", new { htmlAttributes = new { @class = "form-control txt7", @placeholder = "Votre message de motivation" } })
+                            @Html.ValidationMessage("Message", "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    @Html.Label("Attacher votre cv", htmlAttributes: new { @class = "control-label col-md-2", @style = "margin-left: 387px; margin-top:-115px; " })
+
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.Editor("cv", new { htmlAttributes = new { @class = "form-control txt6", @type = "file", @style = "height:32px;width: 118px;margin-top:-80px;" } })
+
+                            @Html.ValidationMessageFor(model => model.cv, "", new { @class = "text-danger", @style = "margin-left:402px;" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Envoye La Demande" class="btn btn-success" />
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    @Html.ActionLink("Page Precedent", "Index", new { @class = "btn btn-success a " })
+</div>
+<div style="margin-top: -109px;
+    margin-left: 991px;">
+    <a href="https://cvdesignr.com/en" target="_blank">
+        <img src="~/upload/26990344-cv-icon-button.png" style="height: 68px;
+    width: 80px;
+  ">
+    </a>
+</div>
+<h4> <p style="margin-left: 860px;
+    margin-top: 12px;">pour rédiger votre CV rapidement<p>
+    </h4>
+
+
+    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>*@
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    <style>
+        #searchname {
+            margin-left: -1033px;
+        }
+    </style>

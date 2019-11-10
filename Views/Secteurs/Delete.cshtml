@@ -1,0 +1,28 @@
+﻿@model wafabank.Models.Secteur
+
+@{
+    Layout = null;}
+
+
+<h3>voulez vous vraiment supprimer ceci</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Supprimer" class="btn btn-danger" /> |
+        </div>
+    }
+</div>

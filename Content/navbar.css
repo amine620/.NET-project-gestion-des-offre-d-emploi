@@ -1,0 +1,25 @@
+﻿/*.navbar-inverse {
+    background-color: #222222;
+    border-color: #080808;
+    width: 148px;
+    height: 615px;
+}
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 136px;
+    margin-top: -111px;
+}*/
+.navbar-inverse {
+    background-color: #222222;
+    border-color: #080808;
+    margin-top: -5px;
+}
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 15px;
+}
+.nav  {
+    font-size: 0PX;
+}

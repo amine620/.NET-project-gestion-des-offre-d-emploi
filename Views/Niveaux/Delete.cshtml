@@ -1,0 +1,20 @@
+﻿@model wafabank.Models.Niveau
+
+@{
+    Layout = null;}
+
+
+<h3>voulez vous vraiment supprimer ceci</h3>
+<div>
+    <dl class="dl-horizontal">
+        
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Supprimer" class="btn btn-danger" /> |
+        </div>
+    }
+</div>

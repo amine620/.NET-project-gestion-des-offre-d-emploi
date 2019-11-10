@@ -1,0 +1,233 @@
+﻿@model IEnumerable<wafabank.Models.offre>
+
+
+@{
+
+}
+<br><br><br>
+
+<link href="~/Content/styleJQ.css" rel="stylesheet" />
+
+
+<div id="mySidenav" class="sidenav" style="margin-top: 46px;">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="~/Niveaux/Index"> Niveaux</a>
+    <a href="~/Secteurs/Index">Secteurs</a>
+    <a href="~/postes/Index">Poste</a>
+    <a href="~/villes/Index">Ville</a>
+    <a href="~/Home/Index">Acceuil</a>
+
+</div>
+
+
+
+<body style="    margin-top: -49px;">
+    <span style="font-size: 32px;cursor:pointer;margin-left: -103px;" onclick="openNav()">&#9776; Paneau</span>
+
+    @using (Html.BeginForm("Create", "jobs", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="container">
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="color: #fff; background-color: #5bc0de; border-color: #46b8da; margin-left: 848px;width: 202px;margin-top: -9px;">Ajouter</button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog c">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Ajouter Une Offre</h4>
+                        </div>
+                        <div class="modal-body">
+                            @Html.Action("Create", "jobs")
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+    }
+
+    <br><br><br>
+
+    <table id="example" class="table table-striped table-bordered" style="width:100%;margin-left: -43px;margin-top: -42px;">
+        <tr>
+            <th>
+                @Html.DisplayName("Domain")
+            </th>
+            <th>
+                @Html.DisplayName("Poste")
+            </th>
+            <th>
+                @Html.DisplayName("Niveau")
+            </th>
+            <th>
+                @Html.DisplayName("ville")
+            </th>
+            <th>
+                @Html.DisplayName("Adresse")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayName("Description")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.photo)
+            </th>
+
+            <th>
+                @Html.DisplayName("Date Publication")
+            </th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tbody id="myTable">
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Secteur.Nom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.poste.Nom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Niveau.Nom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ville.Nom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Adresse)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        <img src="~/upload/@Html.DisplayFor(model => item.photo)" class="thumbnail" style="width:48px;height:48px;" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DatePost)
+                    </td>
+                    <td>
+                        <a href="#" class="btn btn-warning " style="color:white " onclick="edituti(@item.Id)"><i class="fa fa-edit"></i></a>
+
+                        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document" style="margin-left: auto;">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h2 class="modal-title" id="exampleModalLongTitle">Modifier L'offre</h2>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+
+                                        </button>
+                                    </div>
+                                    <div class="modal-body" id="myModalBodyDiv1">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </td>
+
+                    <td>
+                        @using (@Html.BeginForm("Delete", "jobs", new { id = item.Id }))
+
+    {
+        var myModal = "myModal" + item.Id;
+                    <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#@myModal"
+                            data-whatever="@item.Id">
+
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="@myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content" style="height: 261px;">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Suppression</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Voulez-Vous vraiment Supprimer: <span><b>@item.Secteur.Nom</b></span>
+                                <img src="~/upload/Captureb.PNG" style="width: 92px;height: 86px;margin-top:-1px;margin-left: 13px;">
+
+                                </div>
+                                <div style="float:left" class="modal-footer">
+
+                                    <button type="button" class="btn btn-dark text-center" data-dismiss="modal"><i class="fa fa-remove text-danger"></i> Annuler</button>
+                                    <button type="submit" class="btn btn-danger text-center"><i class="fa fa-check-circle"></i> Supprimer</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+}
+
+                    </td>
+                </tr>
+            </tbody>
+        }
+
+    </table>
+</body>
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable();
+
+</script>
+<script>
+    $(document).ready(function () {
+        $('#example').dataTable();
+    });
+
+    var edituti = function (ArticleId) {
+
+        var url = "/jobs/Edit?id=" + ArticleId;
+
+
+        $("#myModalBodyDiv1").load(url,
+            function () {
+                $("#myModal1").modal("show");
+
+            });
+
+    }
+
+
+</script>
+
+
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+</script>

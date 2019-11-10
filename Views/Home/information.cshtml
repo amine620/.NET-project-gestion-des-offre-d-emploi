@@ -1,0 +1,71 @@
+﻿@model wafabank.Models.offre
+
+@{
+    Layout = null;}
+
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Secteur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Secteur.Nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Niveau)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Niveau.Nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.poste)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.poste.Nom)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ville)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ville.Nom)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Adresse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adresse)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayName("Date Publication")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatePost)
+        </dd>
+        <hr>
+        <dt>
+            @Html.DisplayName("Localisation")
+        </dt>
+        <dd>
+            <a target="_blank" href="https://www.google.com/maps/place/@Model.Adresse">
+                <img src="~/upload/google-maps.png" style="width:48px;height:48px;margin-top:-10px;margin-left:9px;">
+            </a>
+        </dd>
+    </dl>
+    
+</div>

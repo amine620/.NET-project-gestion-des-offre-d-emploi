@@ -1,0 +1,79 @@
+﻿@model IEnumerable<wafabank.Models.offre>
+@{
+    /**/
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="panel panel-default">
+    <h3 class="panel-heading">Les offre par ville trouvé</h3>
+
+    <div class="row">
+        @foreach (var subitem in Model)
+        {
+
+
+            <div class="col-md-3 thumbnail" style="margin-left:20px;margin-bottom:20px;height:312px;    box-shadow: 5px 10px 8px #888888;">
+                <img src="~/upload/@subitem.photo" style="width:190px;height:190px" />
+                <h4>   @Html.DisplayFor(modelItem => subitem.poste.Nom)  </h4>
+                @*<h4>   @Html.DisplayFor(modelItem => subitem.Niveau.Nom)  </h4>
+                    <h4>   @Html.DisplayFor(modelItem => subitem.ville.Nom)  </h4>
+                    <h4>   @Html.DisplayFor(modelItem => subitem.Secteur.Nom)  </h4>*@
+                @Html.ActionLink("vue les condition", "Details", new { id = subitem.id }, new { @class = "btn btn-info" })
+                <a href="#" class="btn btn-default " style="color:white;margin-left: 19px;" onclick="edituti(@subitem.id)">
+                    <img src="~/upload/info-147927_960_720.png" style="width:49px;height:39px;margin-top:-1px;margin-left:-1px;">
+
+                </a>
+
+                <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document" style="margin-left: auto;">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="modal-title" id="exampleModalLongTitle">Information L'offre</h2>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+
+                                </button>
+                            </div>
+                            <div class="modal-body" id="myModalBodyDiv1">
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+
+
+
+
+<link href="~/Content/jobs.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#example').dataTable();
+    });
+
+    var edituti = function (ArticleId) {
+
+        var url = "/Home/information?id=" + ArticleId;
+
+
+        $("#myModalBodyDiv1").load(url,
+            function () {
+                $("#myModal1").modal("show");
+
+            });
+
+    }
+
+
+</script>

@@ -1,0 +1,109 @@
+﻿@using Microsoft.AspNet.Identity
+@using wafabank.Models
+
+
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        var db = new ApplicationDbContext();
+        var userid = User.Identity.GetUserId();
+        var currenyuser = db.Users.Where(a => a.Id == userid).SingleOrDefault();
+        @Html.AntiForgeryToken()
+<ul class="nav navbar-nav navbar-right">
+    @*@if (currenyuser.type == "F" || currenyuser.type == "M")
+    {*@
+    <li>
+        <a href="~/Home/Contact" style="color:white">
+            <i class="glyphicon glyphicon-earphone" style="color:white"></i>
+            contactez nous
+        </a>
+    </li>
+    @*}*@
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <span class="glyphicon glyphicon-user"></span>
+            <strong>Beinvenu : @currenyuser.UserName</strong>
+            <span class="glyphicon glyphicon-chevron-down"></span>
+        </a>
+
+        <ul class="dropdown-menu">
+            <li>
+                <div class="navbar-user">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <p class="text-center">
+                                <span class="glyphicon glyphicon-user img-size" style="margin-left: 46px;"></span>
+
+                            </p>
+                        </div>
+                        <div class="col-lg-8" style="width: 410px;margin-top: 100px;margin-left: -195px;height: -58px;">
+                            <p class="text-left">
+                                <strong style="margin-left: 139px;">@currenyuser.UserName</strong>
+                            </p>
+                            @if (currenyuser.type == "M" || currenyuser.type == "F")
+                            {
+                                <a href="~/Home/listDemand" class="btn btn-success btn-block">Les Demande Postulé </a>
+
+
+
+                            }
+                            else
+                            {
+                                <a href="~/jobs/Index" class="btn btn-primary btn-block">Paneau de controle</a>
+                                <a href="~/jobs/Les_Demande_Apply" class="btn btn-success btn-block">Les Demande Recu</a>
+
+
+                            }
+
+                            <a href="~/Account/EditProfil" class="btn btn-default btn-block">Modifier le compte</a>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </li>
+            <li class="divider">
+            <li>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p>
+                            <a href="javascript:document.getElementById('logoutForm').submit()" class="btn btn-danger btn-block">Déconecte</a>
+
+                        </p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </li>
+</ul>
+        @*<li>
+                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>*@
+
+    }
+}
+else
+{
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+
+                <a href="~/Account/Login" style="color:white">
+                    <i class="glyphicon glyphicon-user" style="color:white"></i>
+                    Se connecter
+                </a>
+            </li>
+            <li>
+                <a href="~/Account/Register" style="color:white">
+                    <i class="glyphicon glyphicon-lock" style="color:white"></i>
+                    créer un compte
+                </a>
+            </li>
+            
+            @*<li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>*@
+        </ul>
+}
+

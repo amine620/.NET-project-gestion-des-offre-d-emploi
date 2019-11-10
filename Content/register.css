@@ -1,0 +1,71 @@
+﻿
+.panel-info {
+    border-color: #bce8f1;
+    width: 561px;
+    height: 780px;
+    margin-top: -114px;
+    height: 860px;
+    margin-left: 481px;
+}
+.body-content {
+    padding-left: 230px;
+    padding-right: 15px;
+}
+.img1 {
+    width: 312px;
+    height: 97px;
+    margin-left: 14px;
+    margin-top: 10px;
+}
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-image: url('../upload/job.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.navbar-inverse {
+    background-color: #222222;
+    border-color: #080808;
+    margin-top: -52px;
+}
+
+.panel-body {
+    padding-left: 88px;
+    width: 581px;
+}
+.txt1 {
+    margin-left: 20px;
+    height: 52px;
+    width: 304px;
+}
+.txt2 {
+    margin-left: 20px;
+    height: 52px;
+    width: 275px;
+    margin-top: 44px;
+}
+.txt3 {
+    margin-left: 20px;
+    height: 52px;
+    width: 275px;
+    margin-top: 38px;
+}
+.txt4 {
+    margin-left: 20px;
+    height: 52px;
+    width: 275px;
+    margin-top: 36px;
+}
+.txt5 {
+    margin-left: 21px;
+    margin-top: 36px;
+    width: 275px;
+}
+.btn {
+    margin-top: 30px;
+    margin-left: -26px;
+    width: 335px;
+}
